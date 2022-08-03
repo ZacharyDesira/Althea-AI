@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="btn-group" role="group" aria-label="Recognition selection">
+            <input type="radio" class="btn-check" name="btnradio" id="detectFace" autocomplete="off" ng-model="vm.Selection" value="detectFace" ng-change="vm.Clear()">
+            <label class="btn btn-outline-primary" for="detectFace">Detect Face</label>
+            <input type="radio" class="btn-check" name="btnradio" id="analyzeImage" autocomplete="off" ng-model="vm.Selection" value="analyzeImage" ng-change="vm.Clear()">
+            <label class="btn btn-outline-primary" for="analyzeImage">Analyze Image</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="camera"></div>
+            <div class="">
+                <button type="button" class="btn btn-primary" ng-click="vm.Capture()">Capture</button>
+            </div>
+        </div>
+        <div class="col">
+            <canvas id="snapshot" width="320" height="240"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div style="background-color:lightblue;">
+                <div ng-if="vm.FaceAttributes.length === 0">
+                    <p>Nothing to display</p>
+                </div>
+                <div ng-repeat="faceAttribute in vm.FaceAttributes">
+                    <p>{{faceAttribute}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
